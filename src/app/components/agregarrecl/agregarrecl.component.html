@@ -1,0 +1,50 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Adicion de reos</h3>
+    <form (ngSubmit)= "onSubmit()" #reclusoForm="ngForm">
+        <div class="form-group">
+            <label>Nombre: </label>
+            <input type="text"
+            class="form-control"
+            id = "nombre"
+            [(ngModel)] = "recluso.nombre"
+            name="nombre"
+            required
+            minlength="4"
+            maxlength="50"
+            placeholder="digite nombre"
+            #nombre = ngModel
+            >
+            <div class="alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div *ngIf="nombre.errors?.['required']">
+                    digite nombre por favor
+                </div>
+                <div *ngIf = "nombre.errors?.['minlength']">
+                    El nombre tiene que contener como minimo 4 caracteres
+                  </div>
+                  <div *ngIf = "nombre.errors?.['maxlength']">
+                    El nombre tiene que tener como maximo 30 caracteres
+                  </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Celda: </label>
+            <input type="text"
+            class="form-control"
+            id = "celda"
+            [(ngModel)] = "recluso.celda"
+            name="celda"
+            required
+            minlength="1"
+            maxlength="60"
+            placeholder="Digite la celda"
+            #celda = "ngModel"
+            >
+           
+        </div>
+
+        <button class="btn btn-success" [disabled]= "!reclusoForm.form.valid">Guardar</button>
+    </form>
+    
+</div>

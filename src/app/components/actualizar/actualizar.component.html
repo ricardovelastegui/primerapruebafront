@@ -1,0 +1,25 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">cambio de celda</h3>
+    <form (ngSubmit)= "onSubmit()" #reclusoForm = "ngForm">
+
+  
+      <div class="form-group">
+        <label>Descrption: </label>
+        <input type = "text"
+        class="form-control"
+        id = "celda"
+        [(ngModel)] = "recluso.celda"
+        name = "celda"
+        required
+        minlength="1"
+        maxlength="4"
+        placeholder="escriba la celda"
+        #description = "ngModel"
+        ></div>
+        
+      
+      <button class="btn btn-success" [disabled]= "!reclusoForm.form.valid">Guardar</button>
+    </form>
+    
+  </div>
+  
